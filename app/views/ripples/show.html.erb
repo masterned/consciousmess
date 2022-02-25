@@ -2,19 +2,24 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <% if @ripple.url.blank? %>
-    <%= @ripple.name %>
-  <% else %>
-    <a href="<%= @ripple.url %>"><%= @ripple.name %></a>
-  <% end %>
-</p>
+<div class="post">
+  <div class="post-info">
+    @ <span class="posted-time"><%= @ripple.created_at.strftime("%k:%M:%S") %></span>
+    
+    on <span class="posted-date"><%= @ripple.created_at.strftime("%Y-%m-%d") %></span>
 
-<p>
-  <strong>Message:</strong>
-  <%= @ripple.message %>
-</p>
+    <span class="poster-name">
+      <% if @ripple.url.blank? %>
+        <%= @ripple.name %>
+      <% else %>
+        <a href="<%= @ripple.url %>"><%= @ripple.name %></a>
+      <% end %>
+    </span>
+    
+    posted:
+  </div>
 
-<%= link_to 'Edit', edit_ripple_path(@ripple) %> |
+  <blockquote class="message-content"><pre><%= sanitize(@ripple.message) %></pre></blockquote>
+</div>
+
 <%= link_to 'Back', ripples_path %>
