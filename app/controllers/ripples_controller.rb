@@ -3,7 +3,7 @@ class RipplesController < ApplicationController
 
   # GET /ripples or /ripples.json
   def index
-    @ripples = Ripple.order(created_at: :desc)
+    @ripples = Ripple.order(created_at: :desc).slice(0, 10)
   end
 
   # GET /ripples/1 or /ripples/1.json
