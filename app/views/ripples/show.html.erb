@@ -2,12 +2,11 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @ripple.name %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @ripple.url %>
+  <% if @ripple.url && @ripple.url != '' %>
+    <a href="<%= @ripple.url %>"><%= @ripple.name %></a>
+  <% else %>
+    <%= @ripple.name %>
+  <% end %>
 </p>
 
 <p>
