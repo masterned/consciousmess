@@ -77,7 +77,7 @@ class RipplesController < ApplicationController
     end
 
     def number_of_frame_offsets
-      (Ripple.order(created_at: :desc).length / 10).ceil
+      (Ripple.all.length / 10).ceil
     end
 
     def first_frame_offset?
