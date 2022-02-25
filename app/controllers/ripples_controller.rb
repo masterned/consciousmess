@@ -4,7 +4,7 @@ class RipplesController < ApplicationController
   # GET /ripples or /ripples.json
   def index
     session[:frame_offset] ||= 0
-    @ripples = Ripple.order(created_at: :desc).slice(session[:frame_offset], 10)
+    @ripples = Ripple.order(created_at: :desc).slice(session[:frame_offset] * 10, 10)
   end
 
   # GET /ripples/1 or /ripples/1.json
@@ -29,6 +29,17 @@ class RipplesController < ApplicationController
         format.json { render json: @ripple.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def newest
+    session[:frame_offset] = 0
+    redirect_to ripples_index_url
+  end
+
+  def oldest
+    number_of_offset_frames = (Ripple.order(created_at: :desc).length / 10).ceil
+    session[:frame_offset] = (number_of_offset_frames)
+    redirect_to ripples_index_url
   end
 
   private
