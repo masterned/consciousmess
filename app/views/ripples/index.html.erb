@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @ripples.each do |ripple| %>
+    <% @ripples.slice(0, 10).each do |ripple| %>
       <tr>
         <% if ripple.url.blank? %>
           <td><%= ripple.name %></td>
