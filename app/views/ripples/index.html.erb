@@ -31,9 +31,9 @@
 <br>
 
 <div>
-  <%= link_to 'Newest', newest_path %> |
-  <%= link_to 'Previous 10 Ripples', previous_10_path %> |
-  <%= link_to 'Next 10 Ripples', next_10_path %> |
-  <%= link_to 'Oldest', oldest_path %> |
+  <%= first_frame_offset? ? 'Newest' : link_to('Newest', newest_path) %> |
+  <%= first_frame_offset? ? 'Previous 10 Ripples' : link_to('Previous 10 Ripples', previous_10_path) %> |
+  <%= last_frame_offset? ? 'Next 10 Ripples' : link_to('Next 10 Ripples', next_10_path) %> |
+  <%= last_frame_offset? ? 'Oldest' : link_to('Oldest', oldest_path) %> |
   <%= link_to 'New Ripple', new_ripple_path %>
 </div>

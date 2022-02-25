@@ -83,8 +83,10 @@ class RipplesController < ApplicationController
     def first_frame_offset?
       session[:frame_offset] <= 0
     end
+    helper_method :first_frame_offset?
 
     def last_frame_offset?
       session[:frame_offset] >= number_of_frame_offsets
     end
+    helper_method :last_frame_offset?
 end
