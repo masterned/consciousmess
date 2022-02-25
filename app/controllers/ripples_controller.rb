@@ -33,7 +33,10 @@ class RipplesController < ApplicationController
 
   def newest
     session[:frame_offset] = 0
-    redirect_to ripples_index_url
+
+    respond_to do |format|
+      format.html { redirect_to ripples_index_url}
+    end
   end
 
   def previous_10
@@ -54,7 +57,10 @@ class RipplesController < ApplicationController
 
   def oldest
     session[:frame_offset] = number_of_frame_offsets
-    redirect_to ripples_index_url
+
+    respond_to do |format|
+      format.html { redirect_to ripples_index_url}
+    end
   end
 
   private
