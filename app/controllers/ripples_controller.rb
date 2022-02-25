@@ -24,6 +24,8 @@ class RipplesController < ApplicationController
       if @ripple.save
         format.html { redirect_to ripples_index_url, notice: "Ripple was successfully created." }
         format.json { render :show, status: :created, location: @ripple }
+
+        session[:frame_offset] = 0
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @ripple.errors, status: :unprocessable_entity }
