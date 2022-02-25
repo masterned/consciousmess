@@ -15,10 +15,10 @@
   <tbody>
     <% @ripples.each do |ripple| %>
       <tr>
-        <% if ripple.url && ripple.url != '' %>
-          <td><a href="<%= ripple.url %>"><%= ripple.name %></a></td>
-        <% else %>
+        <% if ripple.url.blank? %>
           <td><%= ripple.name %></td>
+        <% else %>
+          <td><a href="<%= ripple.url %>"><%= ripple.name %></a></td>
         <% end %>
         <td><%= ripple.message %></td>
         <td><%= ripple.created_at %></td>

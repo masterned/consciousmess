@@ -2,10 +2,10 @@
 
 <p>
   <strong>Name:</strong>
-  <% if @ripple.url && @ripple.url != '' %>
-    <a href="<%= @ripple.url %>"><%= @ripple.name %></a>
-  <% else %>
+  <% if @ripple.url.blank? %>
     <%= @ripple.name %>
+  <% else %>
+    <a href="<%= @ripple.url %>"><%= @ripple.name %></a>
   <% end %>
 </p>
 
