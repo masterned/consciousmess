@@ -36,9 +36,24 @@ class RipplesController < ApplicationController
     redirect_to ripples_index_url
   end
 
+  def previous_10
+    session[:frame_offset] -= 1 unless first_frame_offset?
+    
+    respond_to do |format|
+      format.html { redirect_to ripples_index_url}
+    end
+  end
+
+  def next_10
+    session[:frame_offset] += 1 unless last_frame_offset?
+    
+    respond_to do |format|
+      format.html { redirect_to ripples_index_url}
+    end
+  end
+
   def oldest
-    number_of_offset_frames = (Ripple.order(created_at: :desc).length / 10).ceil
-    session[:frame_offset] = (number_of_offset_frames)
+    session[:frame_offset] = number_of_frame_offsets
     redirect_to ripples_index_url
   end
 
@@ -51,5 +66,17 @@ class RipplesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def ripple_params
       params.require(:ripple).permit(:name, :url, :message)
+    end
+
+    def number_of_frame_offsets
+      (Ripple.order(created_at: :desc).length / 10).ceil
+    end
+
+    def first_frame_offset?
+      session[:frame_offset] <= 0
+    end
+
+    def last_frame_offset?
+      session[:frame_offset] >= number_of_frame_offsets
     end
 end
