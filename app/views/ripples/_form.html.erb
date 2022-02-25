@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label 'Your name or alias (required)' %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, size: 60 %>
   </div>
 
   <div class="field">
     <%= form.label 'A website, yours or otherwise (optional)' %>
-    <%= form.text_field :url %>
+    <%= form.text_field :url, size: 60 %>
   </div>
 
   <div class="field">
     <%= form.label 'Your message/note/quote/rant (required)' %>
-    <%= form.text_area :message %>
+    <%= form.text_area :message, rows: 25, cols: 80 %>
   </div>
 
   <div class="actions">
