@@ -20,7 +20,7 @@
         <% else %>
           <td><a href="<%= ripple.url %>"><%= ripple.name %></a></td>
         <% end %>
-        <td><%= ripple.message %></td>
+        <td><%= ripple.message.length > 200 ? ripple.message.truncate(197) : ripple.message %></td>
         <td><%= ripple.created_at %></td>
         <td><%= link_to 'Show', ripple %></td>
       </tr>
