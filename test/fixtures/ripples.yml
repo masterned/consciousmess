@@ -4,3 +4,15 @@ one:
   name: MyString
   url: MyString
   message: MyText
+
+<% 1.upto(30) do |i| %>
+ripple_<%= i %>:
+  name: Ripple<%= i %>
+  message: This is Ripple number <%= i %>
+  url: https://www.ripple<%= i %>.org
+<% end %>
+
+last:
+  name: LastManStanding
+  url: https://www.youtube.com/watch?v=nbo4y7pUlZA
+  message: There is no normal life that is free of pain.
