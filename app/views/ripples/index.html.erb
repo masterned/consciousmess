@@ -14,15 +14,15 @@
 
   <tbody>
     <% @ripples.each do |ripple| %>
-      <tr>
+      <tr class="ripple">
         <% if ripple.url.blank? %>
-          <td><%= ripple.name %></td>
+          <td class="ripple-name"><%= ripple.name %></td>
         <% else %>
-          <td><a href="<%= ripple.url %>"><%= ripple.name %></a></td>
+          <td><a href="<%= ripple.url %>" class="ripple-name"><%= ripple.name %></a></td>
         <% end %>
-        <td><%= ripple.message.length > 200 ? ripple.message.truncate(197) : ripple.message %></td>
-        <td><%= ripple.created_at %></td>
-        <td><%= link_to 'Show', ripple %></td>
+        <td class="ripple-message"><%= ripple.message.length > 200 ? ripple.message.truncate(197) : ripple.message %></td>
+        <td class="ripple-created-at"><%= ripple.created_at %></td>
+        <td class="ripple-show-link"><%= link_to 'Show', ripple %></td>
       </tr>
     <% end %>
   </tbody>
