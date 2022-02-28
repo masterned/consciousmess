@@ -4,8 +4,3 @@ one:
   name: MyString
   url: MyString
   message: MyText
-
-two:
-  name: MyString
-  url: MyString
-  message: MyText
