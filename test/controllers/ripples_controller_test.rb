@@ -48,15 +48,6 @@ class RipplesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "should properly redirect & modify session hash moving to next then newest" do
-    skip
-  end
-
-
-  test "should properly redirect & modify session hash moving to oldest then previous" do
-    skip
-  end
-
   private
   
     def new_ripple_with_url(url)

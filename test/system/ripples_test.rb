@@ -35,4 +35,13 @@ class RipplesTest < ApplicationSystemTestCase
     assert_selector 'td', text: @ripple.message
     assert_selector 'td a', text: 'Show'
   end
+
+  test "viewing next 10 ripples & then newest" do
+    skip
+  end
+
+
+  test "viewing oldest & then previous 10 ripples" do
+    skip
+  end
 end
