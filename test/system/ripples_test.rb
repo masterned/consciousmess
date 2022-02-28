@@ -40,13 +40,15 @@ class RipplesTest < ApplicationSystemTestCase
     visit ripples_url
     click_link "Next 10 Ripples"
 
-    assert_selector 'tr td a', text: 'Ripple21'
-    assert_selector 'tr td', text: 'This is Ripple number 21'
+    ripple21 = ripples(:ripple_21)
+    assert_selector '.ripple-name', text: ripple21.name
+    assert_selector '.ripple-message', text: ripple21.message
 
     click_link 'Newest'
 
-    assert_selector 'tr td a', text: 'LastManStanding'
-    assert_selector 'tr td', text: 'There is no normal life that is free of pain.'
+    last = ripples(:last)
+    assert_selector '.ripple-name', text: last.name
+    assert_selector '.ripple-message', text: last.message
   end
 
 
@@ -54,12 +56,14 @@ class RipplesTest < ApplicationSystemTestCase
     visit ripples_url
     click_link 'Oldest'
 
-    assert_selector 'tr td a', text: 'Ripple1'
-    assert_selector 'tr td', text: 'This is Ripple number 1'
+    ripple1 = ripples(:ripple_1)
+    assert_selector '.ripple-name', text: ripple1.name
+    assert_selector '.ripple-message', text: ripple1.message
 
     click_link 'Previous 10 Ripples'
 
-    assert_selector 'tr td a', text: 'Ripple11'
-    assert_selector 'tr td', text: 'This is Ripple number 11'
+    ripple11 = ripples(:ripple_11)
+    assert_selector '.ripple-name', text: ripple11.name
+    assert_selector '.ripple-message', text: ripple11.message
   end
 end
