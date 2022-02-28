@@ -37,11 +37,29 @@ class RipplesTest < ApplicationSystemTestCase
   end
 
   test "viewing next 10 ripples & then newest" do
-    skip
+    visit ripples_url
+    click_link "Next 10 Ripples"
+
+    assert_selector 'tr td a', text: 'Ripple21'
+    assert_selector 'tr td', text: 'This is Ripple number 21'
+
+    click_link 'Newest'
+
+    assert_selector 'tr td a', text: 'LastManStanding'
+    assert_selector 'tr td', text: 'There is no normal life that is free of pain.'
   end
 
 
   test "viewing oldest & then previous 10 ripples" do
-    skip
+    visit ripples_url
+    click_link 'Oldest'
+
+    assert_selector 'tr td a', text: 'Ripple1'
+    assert_selector 'tr td', text: 'This is Ripple number 1'
+
+    click_link 'Previous 10 Ripples'
+
+    assert_selector 'tr td a', text: 'Ripple11'
+    assert_selector 'tr td', text: 'This is Ripple number 11'
   end
 end
